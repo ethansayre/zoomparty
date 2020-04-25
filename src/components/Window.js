@@ -5,8 +5,10 @@ class Window extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      x: 0,
-      y: 0
+      x: props.x == null ? 0 : props.x,
+      y: props.y == null ? 0 : props.y,
+      width: props.width == null ? 300 : props.width,
+      height: props.height == null ? 300 : props.height
     }
   }
   render() {
@@ -23,6 +25,8 @@ class Window extends React.Component {
             ...position,
           });
         }}
+        enableResizing={this.props.disabled != null ? { top:false, right:false, bottom:false, left:false, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false } : { top:true, right:true, bottom:true, left:true, topRight:true, bottomRight:true, bottomLeft:true, topLeft:true }}
+        dragHandleClassName={this.props.handle}
       >
         {this.props.children}
       </Rnd>
