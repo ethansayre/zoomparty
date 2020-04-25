@@ -7,11 +7,13 @@ import IframeResizer from 'iframe-resizer-react'
 class ZoomViewer extends React.Component {
   render() {
     return (
-      <IframeResizer
-        log
-        src={"https://www.youtube.com/embed/YQHsXMglC9A"} sandbox={"allow-forms allow-scripts allow-same-origin"} allow={"microphone; camera; fullscreen"}
-        style={{ width: '100px', minWidth: '100%', height: '100px', minHeight: "100%", border: 0, borderRadius: "6px"}}
-      />
+      <>
+        <IframeResizer
+          log
+          src={"https://www.youtube.com/embed/YQHsXMglC9A"} sandbox={"allow-forms allow-scripts allow-same-origin"} allow={"microphone; camera; fullscreen"}
+          style={{ width: '100px', minWidth: '100%', height: '100px', minHeight: "100%", border: 0, borderRadius: "6px"}}
+        />
+      </>
     );
   }
 }

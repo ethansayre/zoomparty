@@ -64,7 +64,7 @@ function App() {
         <Window disabled handle="card-header">
           <WhiteboardViewer />
         </Window>
-        <Window handle="board-header">
+        <Window handle="headericon">
           <TrelloViewer />
         </Window>
       </div>
