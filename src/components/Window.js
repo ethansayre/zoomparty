@@ -27,6 +27,7 @@ class Window extends React.Component {
         }}
         enableResizing={this.props.disabled != null ? { top:false, right:false, bottom:false, left:false, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false } : { top:true, right:true, bottom:true, left:true, topRight:true, bottomRight:true, bottomLeft:true, topLeft:true }}
         dragHandleClassName={this.props.handle}
+        bounds=".bounds"
       >
         {this.props.children}
       </Rnd>

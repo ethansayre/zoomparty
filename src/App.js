@@ -23,20 +23,51 @@ var firebaseConfig = {
 function App() {
   return (
     <div className="App">
-      <div className="appbar" style={{marginTop: 5}}>
-        <a style={{marginRight: 10}} class={`button is-primary is-rounded`} onClick={() => {}}>
-            <span class="icon is-small">
-            <i class="fas fa-mouse-pointer"></i>
-            </span>
-            <span>Trello</span>
-        </a>
+      <div className="appbar" style={{alignItems: "center"}}>
+        <div className="appbarChild" style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, width: "90%", backgroundColor: "#324e7b", margin: "auto"}}>
+          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+              <span class="icon is-small">
+              <i class="fab fa-trello"></i>
+              </span>
+              <span>Trello</span>
+          </a>
+          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+              <span class="icon is-small">
+              <i class="fas fa-video"></i>
+              </span>
+              <span>Zoom</span>
+          </a>
+          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+              <span class="icon is-small">
+              <i class="fas fa-pen-square"></i>
+              </span>
+              <span>Docs</span>
+          </a>
+          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+              <span class="icon is-small">
+              <i class="fas fa-chalkboard-teacher"></i>
+              </span>
+              <span>Whiteboard</span>
+          </a>
+          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+              <span class="icon is-small">
+              <i class="fas fa-code-branch"></i>
+              </span>
+              <span>Custom</span>
+          </a>
+        </div>
       </div>
-      <Window disabled handle="card-header">
-        <WhiteboardViewer />
-      </Window>
-      <Window handle="board-header">
-        <TrelloViewer />
-      </Window>
+      <div className="bounds" style={{width: window.innerWidth, height: window.innerHeight}}>
+        <Window handle="ql-toolbar">
+          <NotesViewer />
+        </Window>
+        <Window disabled handle="card-header">
+          <WhiteboardViewer />
+        </Window>
+        <Window handle="board-header">
+          <TrelloViewer />
+        </Window>
+      </div>
     </div>
   );
 }
