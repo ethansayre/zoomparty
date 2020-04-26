@@ -28,17 +28,27 @@ class App extends React.Component {
       activeFunctions: [],
       loggedIn: false,
       meetingId: null,
-      password: null
+      password: null,
+      name: null
     }
     this.renderFunctions = [this.renderTrello, this.renderNotes, this.renderWhiteboard];
   }
 
-  logInHandler = (meetingId, password) => {
+  logInHandler = (meetingId, password, name) => {
     this.setState({
       loggedIn: true,
       meetingId: meetingId,
-      password: password
+      password: password,
+      name: btoa(name)
     })
+  }
+
+  renderZoom = () => {
+    return (
+      <Window handle="headericon">
+        <ZoomViewer meetingId={this.state.meetingId} name={this.state.name} password={this.state.passsword}/>
+      </Window>
+    )
   }
 
   renderTrello = () => {
@@ -120,6 +130,7 @@ class App extends React.Component {
             </div>
           </div>
           <div className="bounds" style={{width: window.innerWidth, height: window.innerHeight}}>
+            {this.renderZoom()}
             {this.renderAll()}
             
           </div>
@@ -127,7 +138,7 @@ class App extends React.Component {
       );
     } else {
       return (
-        <Login />
+        <Login logInHandler={this.logInHandler} />
       );
     }
     
