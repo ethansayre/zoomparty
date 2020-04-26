@@ -8,6 +8,9 @@ class ZoomViewer extends React.Component {
   render() {
     return (
       <>
+        <span class="icon is-small headericon" style={{position: "absolute", top: 5, left: 5, color: "#f8f8f8"}}>
+          <i class="fas fa-grip-horizontal headericon" style={{position: "absolute", top: 0, left: 0}}></i>
+        </span>
         <IframeResizer
           log
           src={"https://www.youtube.com/embed/YQHsXMglC9A"} sandbox={"allow-forms allow-scripts allow-same-origin"} allow={"microphone; camera; fullscreen"}
