@@ -30,7 +30,12 @@ class NotesViewer extends React.Component {
 
   render() {
     return (
-      <ReactQuill value={this.state.text} onChange={this.handleChange} style={{ width: '100px', minWidth: '100%', height: '100px', minHeight: "100%", border: 0, borderRadius: "6px"}} />
+      <>
+        <span class="icon is-small headericon ql-toolbar" style={{position: "absolute", top: 5, left: 5, color: "#5068a9"}}>
+          <i class="fas fa-grip-horizontal headericon" style={{position: "absolute", top: 0, left: 0}}></i>
+        </span>
+        <ReactQuill value={this.state.text} onChange={this.handleChange} style={{ width: '100px', minWidth: '100%', height: '100px', minHeight: "100%", border: 0, borderRadius: "6px"}} />
+      </>
     );
   }
 }

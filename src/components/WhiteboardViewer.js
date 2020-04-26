@@ -166,43 +166,48 @@ class Whiteboard extends React.Component {
             <div class="section" style={{width: 500, height: 500}}>
                 <div class="card">
                     <div class="card-header" style={{padding: 5}}>
-                        <a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == 0 ? "" : "is-light"}`} onClick={() => {this.changeActive(0)}}>
-                            <span class="icon is-small">
-                            <i class="fas fa-mouse-pointer"></i>
-                            </span>
-                        </a>
-                        {/*<a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == -1 ? "" : "is-light"}`} onClick={() => {this.changeActive(-1)}}>
-                            <span class="icon is-small">
-                            <i class="fas fa-hand-paper"></i>
-                            </span>
-                        </a>*/}
-                        <a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == 1 ? "" : "is-light"}`} onClick={() => {this.changeActive(1)}}>
-                            <span class="icon is-small">
-                            <i class="fas fa-pen"></i>
-                            </span>
-                        </a>
-                        <a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == 2 ? "" : "is-light"}`} onClick={() => {this.changeActive(2)}}>
-                            <span class="icon is-small">
-                                <i class="fas fa-highlighter"></i>
-                            </span>
-                        </a>
-                        <a style={{marginRight: 10}} class={`button is-primary is-rounded is-light`} onClick={() => {this.undo()}}>
-                            <span class="icon is-small">
-                            <i class="fas fa-undo"></i>
-                            </span>
-                        </a>
-                        <a style={{marginRight: 10}} class={`button is-primary is-rounded is-light`} onClick={() => {this.trash()}}>
-                            <span class="icon is-small">
-                            <i class="fas fa-trash"></i>
-                            </span>
-                            { this.state.displayColorPicker ? <div style={{position: 'absolute'}}>
-                            <div style={{position: 'fixed',
-                            top: '0px',
-                            right: '0px',
-                            bottom: '0px',
-                            left: '0px',}} onClick={ this.handleClose }/>
-                            </div> : null }
-                        </a>
+                      <span class="icon is-small headericon" style={{position: "absolute", top: 5, left: 5, color: "#5068a9"}}>
+                        <i class="fas fa-grip-horizontal headericon" style={{position: "absolute", top: 0, left: 0}}></i>
+                      </span>
+                      <div style={{margin: "auto"}}>
+                          <a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == 0 ? "" : "is-light"}`} onClick={() => {this.changeActive(0)}}>
+                              <span class="icon is-small">
+                              <i class="fas fa-mouse-pointer"></i>
+                              </span>
+                          </a>
+                          {/*<a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == -1 ? "" : "is-light"}`} onClick={() => {this.changeActive(-1)}}>
+                              <span class="icon is-small">
+                              <i class="fas fa-hand-paper"></i>
+                              </span>
+                          </a>*/}
+                          <a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == 1 ? "" : "is-light"}`} onClick={() => {this.changeActive(1)}}>
+                              <span class="icon is-small">
+                              <i class="fas fa-pen"></i>
+                              </span>
+                          </a>
+                          <a style={{marginRight: 10}} class={`button is-primary is-rounded ${this.state.isActive == 2 ? "" : "is-light"}`} onClick={() => {this.changeActive(2)}}>
+                              <span class="icon is-small">
+                                  <i class="fas fa-highlighter"></i>
+                              </span>
+                          </a>
+                          <a style={{marginRight: 10}} class={`button is-primary is-rounded is-light`} onClick={() => {this.undo()}}>
+                              <span class="icon is-small">
+                              <i class="fas fa-undo"></i>
+                              </span>
+                          </a>
+                          <a style={{marginRight: 10}} class={`button is-primary is-rounded is-light`} onClick={() => {this.trash()}}>
+                              <span class="icon is-small">
+                              <i class="fas fa-trash"></i>
+                              </span>
+                              { this.state.displayColorPicker ? <div style={{position: 'absolute'}}>
+                              <div style={{position: 'fixed',
+                              top: '0px',
+                              right: '0px',
+                              bottom: '0px',
+                              left: '0px',}} onClick={ this.handleClose }/>
+                              </div> : null }
+                          </a>
+                        </div>
                     </div>
                     <div class="card-content" style={{padding: 2}}>
                         

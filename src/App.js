@@ -20,56 +20,63 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-function App() {
-  return (
-    <div className="App">
-      <div className="appbar" style={{alignItems: "center"}}>
-        <div className="appbarChild" style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, width: "90%", backgroundColor: "#324e7b", margin: "auto"}}>
-          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
-              <span class="icon is-small">
-              <i class="fab fa-trello"></i>
-              </span>
-              <span>Trello</span>
-          </a>
-          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
-              <span class="icon is-small">
-              <i class="fas fa-video"></i>
-              </span>
-              <span>Zoom</span>
-          </a>
-          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
-              <span class="icon is-small">
-              <i class="fas fa-pen-square"></i>
-              </span>
-              <span>Docs</span>
-          </a>
-          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
-              <span class="icon is-small">
-              <i class="fas fa-chalkboard-teacher"></i>
-              </span>
-              <span>Whiteboard</span>
-          </a>
-          <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
-              <span class="icon is-small">
-              <i class="fas fa-code-branch"></i>
-              </span>
-              <span>Custom</span>
-          </a>
+class App extends React.Component {
+  renderNotes = () => {
+    return (
+      <Window handle="ql-toolbar">
+        <NotesViewer />
+      </Window>
+    )
+  }
+  render() {
+    return (
+      <div className="App">
+        <div className="appbar" style={{alignItems: "center"}}>
+          <div className="appbarChild" style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, width: "90%", backgroundColor: "#324e7b", margin: "auto"}}>
+            <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+                <span class="icon is-small">
+                <i class="fas fa-video"></i>
+                </span>
+                <span>Zoom</span>
+            </a>
+            <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+                <span class="icon is-small">
+                <i class="fab fa-trello"></i>
+                </span>
+                <span>Trello</span>
+            </a>
+            <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+                <span class="icon is-small">
+                <i class="fas fa-pen-square"></i>
+                </span>
+                <span>Docs</span>
+            </a>
+            <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+                <span class="icon is-small">
+                <i class="fas fa-chalkboard-teacher"></i>
+                </span>
+                <span>Whiteboard</span>
+            </a>
+            <a style={{margin: 7, backgroundColor: "#f8f8f8", color: "#5068a9"}} class={`button is-primary is-rounded`} onClick={() => {}}>
+                <span class="icon is-small">
+                <i class="fas fa-code-branch"></i>
+                </span>
+                <span>Custom</span>
+            </a>
+          </div>
+        </div>
+        <div className="bounds" style={{width: window.innerWidth, height: window.innerHeight}}>
+          {this.renderNotes()}
+          <Window disabled handle="card-header">
+            <WhiteboardViewer />
+          </Window>
+          <Window handle="headericon">
+            <TrelloViewer />
+          </Window>
         </div>
       </div>
-      <div className="bounds" style={{width: window.innerWidth, height: window.innerHeight}}>
-        <Window handle="ql-toolbar">
-          <NotesViewer />
-        </Window>
-        <Window disabled handle="card-header">
-          <WhiteboardViewer />
-        </Window>
-        <Window handle="headericon">
-          <TrelloViewer />
-        </Window>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
