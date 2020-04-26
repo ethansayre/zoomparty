@@ -14,7 +14,7 @@ class NotesViewer extends React.Component {
   }
 
   componentDidMount = () => {
-      firebase.database().ref('streams/main/notes').on("value", (snapshot) => {
+      firebase.database().ref(`streams/${this.props.meetingId}/notes`).on("value", (snapshot) => {
           if (snapshot.val() != null) {
               this.setState({text: snapshot.val()});
           } else {
@@ -24,7 +24,7 @@ class NotesViewer extends React.Component {
   }
   handleChange = (value) => {
     this.setState({ text: value }, () => {
-        firebase.database().ref('streams/main/notes').set(this.state.text);
+        firebase.database().ref(`streams/${this.props.meetingId}/notes`).set(this.state.text);
     });
   }
 

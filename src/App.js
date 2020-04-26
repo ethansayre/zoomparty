@@ -44,6 +44,7 @@ class App extends React.Component {
   }
 
   renderZoom = () => {
+    if (this.state.meetingId == "555") return;
     return (
       <Window handle="headericon">
         <ZoomViewer meetingId={this.state.meetingId} name={this.state.name} password={this.state.passsword}/>
@@ -61,7 +62,7 @@ class App extends React.Component {
 
   renderNotes = () => {
     return (
-      <Window handle="ql-toolbar">
+      <Window meetingId={this.state.meetingId} handle="ql-toolbar">
         <NotesViewer />
       </Window>
     )
@@ -69,7 +70,7 @@ class App extends React.Component {
 
   renderWhiteboard = () => {
     return (
-      <Window disabled handle="card-header">
+      <Window meetingId={this.state.meetingId} disabled handle="card-header">
         <WhiteboardViewer />
       </Window>
     )

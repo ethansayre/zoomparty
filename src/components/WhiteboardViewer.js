@@ -66,7 +66,7 @@ class Whiteboard extends React.Component {
     };
 
     componentDidMount = () => {
-        firebase.database().ref('streams/main/whiteboard/lines').on("value", (snapshot) => {
+        firebase.database().ref(`streams/${this.props.meetingId}/whiteboard/lines`).on("value", (snapshot) => {
             if (snapshot.val() != null) {
                 this.setState({lines: snapshot.val()});
             } else {
@@ -116,7 +116,7 @@ class Whiteboard extends React.Component {
             lines: topLines
         }, () => {
             //this.props.firebase.database().ref('submissions/officer/').child(this.props.firebase.auth().currentUser.uid).set({...this.state});
-            firebase.database().ref('streams/main/whiteboard/lines').set(this.state.lines);
+            firebase.database().ref(`streams/${this.props.meetingId}/whiteboard/lines`).set(this.state.lines);
         });
     };
     
@@ -131,7 +131,7 @@ class Whiteboard extends React.Component {
             array.pop();
             this.setState({lines: array}, () => {
                 //this.props.firebase.database().ref('submissions/officer/').child(this.props.firebase.auth().currentUser.uid).set({...this.state});
-                firebase.database().ref('streams/main/whiteboard/lines').set(this.state.lines);
+                firebase.database().ref(`streams/${this.props.meetingId}/whiteboard/lines`).set(this.state.lines);
             });
         }
     }
@@ -139,14 +139,14 @@ class Whiteboard extends React.Component {
     trash = () => {
         this.setState({lines: [], highlights: []}, () => {
             //this.props.firebase.database().ref('submissions/officer/').child(this.props.firebase.auth().currentUser.uid).set({...this.state});
-            firebase.database().ref('streams/main/whiteboard/lines').set(this.state.lines);
+            firebase.database().ref(`streams/${this.props.meetingId}/whiteboard/lines`).set(this.state.lines);
         });
     }
     
     changeActive = (tool) => {
         this.setState({isActive: tool}, () => {
             //this.props.firebase.database().ref('submissions/officer/').child(this.props.firebase.auth().currentUser.uid).set({...this.state});
-            firebase.database().ref('streams/main/whiteboard/lines').set(this.state.lines);
+            firebase.database().ref(`streams/${this.props.meetingId}/whiteboard/lines`).set(this.state.lines);
         });
     }
 
